@@ -106,7 +106,7 @@ void large13Product()
 	vector<int> number(13);
 	uint64_t maxProduct = 1;
 	uint64_t max = 1;
-	uint16_t count = 0, iter = 0;
+	uint16_t iter = 0;
 
 	clock_t tStart = clock();
 	for (iter = 0; iter <= number.size() - 1; iter++)
