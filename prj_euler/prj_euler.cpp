@@ -12,7 +12,7 @@ using namespace std;
 
 int getMultiples(int n)
 {
-	/* Find the sum of all the multiples of 3 or 5 below 1000 */
+	/* Problem 1. Find the sum of all the multiples of 3 or 5 below 1000 */
 	int sum = 0;
 	for (int i = 0; i <= n; i++)
 	{
@@ -48,7 +48,7 @@ bool isPrime(int n)
 }
 int sumSquareDifference(double n)
 {
-	/* Function find the difference between the sum of the squares 
+	/* Problem 6. Function find the difference between the sum of the squares 
 	   of the first N natural numbers and the square of the sum */
 
 	double sumSq = 0;
