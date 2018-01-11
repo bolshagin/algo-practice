@@ -7,9 +7,6 @@
 
 using namespace std;
 
-#define N 1000000
-#define LIMIT 10001
-
 int getMultiples(int n)
 {
 	/* Problem 1. Find the sum of all the multiples of 3 or 5 below 1000 */
@@ -38,12 +35,9 @@ bool isPrime(int n)
 {
 	if (n == 1)
 		return false;
-	for (int i = 2; i * i < n; i++)
-	{
-		if (i % n == 0)
+	for (int i = 2; i <= sqrt(n); i++)
+		if (n % i == 0)
 			return false;
-	}
-
 	return true;
 }
 int sumSquareDifference(double n)
@@ -71,6 +65,8 @@ int sumSquareDifference(double n)
 void find10001Prime()
 {
 	/* Problem 7. Function find the 10 001st prime number */
+	const int N = 1000000;
+	int limit = 1001;
 	bool prime[N];
 
 	std::cout << "Finds 10001st prime number" << std::endl;
@@ -86,10 +82,9 @@ void find10001Prime()
 		if (prime[iter])
 		{
 			count++;
-			// cout << iter << " is prime" << endl;
 			for (unsigned long int j = iter * iter; j < N; j += iter)
 				prime[j] = false;
-			if (count == LIMIT)
+			if (count == limit)
 				cout << iter << " is 10001st prime number" << endl;
 		}
 	}
@@ -128,6 +123,38 @@ void large13Product()
 
 	cout << "Time: " << (double)(clock() - tStart) / CLOCKS_PER_SEC << " s." << endl;
 	cout << "Max of product's: " << maxProduct << endl;
+}
+void pythagoreanTriple()
+{
+	/* Problem 9. There exists exactly one Pythagorean triplet for which a + b + c = 1000.
+	Find the product abc. */
+	
+	int t = 1000;
+	int a = 0, b = 0, c = 0;
+	for (int n = 1; n < sqrt(t / 2); n++)
+		for (int m = n + 1; m < sqrt(t / 2); m++)
+		{
+			a = m * m - n * n;
+			b = 2 * m*n;
+			c = m * m + n * n;
+			if (a + b + c == 1000)
+			{
+				cout << "Pythagorean Triple a = " << a << " b = " << b << " c = " << c << endl;
+				cout << "a*b*c = " << a * b * c << endl;
+			}
+		}
+
+}
+void sumPrimeBelow2m()
+{
+	/* Problem 10. Sum of all the primes below two million. */
+	
+	int limit = 2000000;
+	unsigned long long int sum = 0;
+	for (int i = 1; i <= limit; i++)
+		if (isPrime(i))
+			sum = sum + i;
+	cout << "Sum of all the primes below 2 million: " << sum << endl;
 }
 
 int main(int argc, _TCHAR* argv[])
