@@ -1,5 +1,4 @@
 def c(n, k):
-    res = 1
     kk, nn = 1, 1
     for i in range(1, k + 1):
         nn *= (n - k + i)
