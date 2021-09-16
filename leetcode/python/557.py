@@ -2,6 +2,9 @@ from typing import List
 
 
 class Solution:
+    def reverse_words_pythonic(self, s: str) -> str:
+        return ' '.join([word[::-1] for word in s.split()])
+
     def reverse_words(self, s: str) -> str:
         result = []
         for word in s.split():
