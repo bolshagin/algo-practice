@@ -3,15 +3,13 @@ from typing import List
 
 class Solution:
     def two_sum(self, numbers: List[int], target: int) -> List[int]:
-        first, last = 0, len(numbers) - 1
-        while first < last:
-            sum = numbers[first] + numbers[last]
-            if sum == target:
-                return [first + 1, last + 1]
-            elif sum < target:
-                first += 1
+        d = dict()
+        for x in range(len(numbers)):
+            y = target - numbers[x]
+            if y in d:
+                return d[y], x
             else:
-                last -= 1
+                d[nums[x]] = x
 
     def two_sum_bs(self, numbers: List[int], target: int) -> List[int]:
         pass
